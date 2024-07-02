@@ -1,0 +1,94 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Vendor Transactions{% endblock %}
+{% block content %}
+<h6 id="vendorTitle"><p>Transaction History</p></h6>
+<section id="transaction-container">
+    <div class="container-border">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showPage('completed_transaction')">Completed</button>
+            <button class="tab-button" onclick="showPage('upcoming_transaction')">Upcoming</button>
+            <button class="tab-button" onclick="showPage('grossearn_transaction')">Gross Earning</button>
+        </div>
+        <div class="downloadBtn">
+            <button id="downloadBtn" class="download-button" onclick="downloadPDF()">
+                <img src="../static/images/download.png" alt="Download Icon" class="download-icon">
+                <span>Download</span>
+            </button> 
+        </div>
+    </div>
+    <div class="page-content">
+        <div id="completed_transaction" class="tab-page active">
+            <table class="completed-table">
+                <tr class="transaction-item">
+                    <td class="transaction-rest">
+                        <b>Coffee shop</b>
+                        <br>
+                        123 Street 12jaksdjf
+                    </td>
+                    <td class="transaction-date">
+                        <b>Payment Datetime:</b>
+                        <br>
+                        <div id="item-date-time" class="item-detail">12 Mar 2021 at 14:00</div>                    </td>
+                    <td class="transaction-cost">
+                        <b>Transaction Cost:</b>
+                        <br>
+                        <div id="item-cost" class="item-detail">$1300.20</div>
+                    </td>
+                </tr>
+                <tr class="transaction-item">
+                    <td class="transaction-rest">
+                        <b>Coffee shop</b>
+                        <br>
+                        123 Street 12jaksdjf
+                    </td>
+                    <td class="transaction-date">
+                        <b>Payment Datetime:</b>
+                        <br>
+                        <div id="item-date-time" class="item-detail">23 June 2022 at 21:01</div>                    </td>
+                    <td class="transaction-cost">
+                        <b>Transaction Cost:</b>
+                        <br>
+                        <div id="item-cost" class="item-detail">$1300.20</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="upcoming_transaction" class="tab-page">
+            <table class="upcoming-table">
+                <tr class="transaction-item">
+                    <td class="transaction-rest">
+                        <b>Coffee shop</b>
+                        <br>
+                        123 Street 12jaksdjf
+                    </td>
+                    <td class="transaction-date">
+                        <b>Payment Status:</b>
+                        <br>
+                        <div id="item-date-time" class="item-detail">Pending Payment</div>                    </td>
+                    <td class="transaction-cost">
+                        <b>Transaction Cost:</b>
+                        <br>
+                        <div id="item-cost" class="item-detail">$1300.20</div>
+                    </td>
+                </tr>
+                <tr class="transaction-item">
+                    <td class="transaction-rest">
+                        <b>Coffee shop</b>
+                        <br>
+                        123 Street 12jaksdjf
+                    </td>
+                    <td class="transaction-date">
+                        <b>Payment Status:</b>
+                        <br>
+                        <div id="item-date-time" class="item-detail">Pending Approval</div>                    </td>
+                    <td class="transaction-cost">
+                        <b>Transaction Cost:</b>
+                        <br>
+                        <div id="item-cost" class="item-detail">$1300.20</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

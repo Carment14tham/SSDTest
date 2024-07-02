@@ -1,0 +1,271 @@
+#vendorTitle {
+    width: 100%;
+    padding: 50px;
+}
+
+#vendorTitle p {
+    color: #000000;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+}
+
+/* Vendor Listings */
+
+#listing-container {
+    margin: 20px 50px;
+}
+
+.listing-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+.listing-card {
+    width: 500px; 
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; 
+    overflow: hidden;
+}
+
+.card-listing-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.listing-details {
+    position: relative;
+}
+
+.listing-info {
+    margin: 25px;
+    padding: 0px;
+    color: #000000;
+}
+
+.listing-info .listing-name {
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+.listing-info .listing-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.listing-info button {
+    width: 100%;
+    margin: 10px;
+    border-radius: 18px;
+}
+
+.listing-btns #removeListing {
+    background-color: #cbc9c9;
+    color: #000000;
+}
+
+.listing-btns #removeListing:hover {
+    background-color: #EEC9B3;
+}
+
+/* Vendor Reservations */
+
+#reservation-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.container-border {
+    display: flex;
+    margin: 0px 100px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tabs {
+    flex: 1;
+    width: 50%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tabs button {
+    width: 200px;
+    margin: 0px;
+}
+
+.tab-button {
+    color: #000000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    position: relative;
+    transition: color 0.3s;
+    margin: 0px;
+}
+
+.tab-button:hover {
+    background-color: #cbc9c9;
+}
+
+.tab-button.active {
+    font-weight: bold;
+    position: relative;
+}
+
+.tab-button.active::after {
+    content: '';
+    height: 4px;
+    width: 100%;
+    background: #000000;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.page-content {
+    margin: 0px 100px;
+    padding: 20px;
+}
+
+.tab-page {
+    display: none;
+}
+
+.tab-page.active {
+    display: block;
+}
+
+.page-content {
+    color: #000000;
+}
+
+.logo-column .reserve-rest-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.logo-column {
+    padding: 10px 20px;
+    width: 1%;
+    white-space: nowrap;
+}
+
+.items-column {
+    flex: 1;
+    padding: 10px 20px;
+}
+
+.items-row {
+    margin-bottom: 3px;
+}
+
+.item-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-details {
+    display: flex;
+}
+
+.item-detail {
+    margin-right: 10px;
+}
+
+.buttons-column {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.reservation-button {
+    width: 100px;
+    padding: 8px 16px;
+    margin-right: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+}
+
+.buttons-column #reject-button {
+    background-color: #cbc9c9;
+    color: #000000;
+}
+
+.buttons-column #reject-button:hover {
+    background-color: #EEC9B3;
+}
+
+/* Vendor Transactions */
+
+#transaction-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.download-icon {
+    width: 30px;
+    height: 30px;
+    flex: 1;
+}
+
+.download-button {
+    display: inline-block;
+    border-radius: 23px;
+    width: 200px;
+    padding: 8px;
+    margin: 0px;
+    background-color: #ffffff;
+    position: relative;
+    border: 2px solid #000000;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.download-button span {
+    color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.transaction-item {
+    height: 100px;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+
+#completed_transaction table, #upcoming_transaction table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.transaction-item td {
+    flex: 1;
+}
+
+.transaction-rest b {
+    font-size: 25px;
+}

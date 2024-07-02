@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-user">
+    <!-- Brand -->
+    <a class="navbar-brand" href="{% url 'members' %}">
+        <img src="../../static/images/logo.png" id=userlogo href="{% url 'members' %}">
+    </a>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto font-weight-bold">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Find a Restaurant</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">Guide</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">Text</a>
+        </li>
+        <li class="nav-item">
+            <button id="loginbtn" class="btn btn-outline-light rounded-pill"
+                onclick="" style="width:auto;">
+                Become A Host
+            </button>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <i class="bi bi-person-circle orange"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+         <a class="dropdown-item" href="{% url 'members' %}">Logout</a> 
+          <!-- <a class="dropdown-item" href="#"> MITRE Ransomware Software</a>
+          <a class="dropdown-item" href="#"> MITRE Ransomware Groups</a> -->
+        </div>
+      </li>
+    </ul>
+</nav>

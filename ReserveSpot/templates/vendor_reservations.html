@@ -1,0 +1,104 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Vendor Reservations{% endblock %}
+{% block content %}
+<h6 id="vendorTitle"><p>Your Reservations</p></h6>
+<section id="reservation-container">
+    <div class="container-border">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showPage('upcoming_reservation')">Upcoming</button>
+            <button class="tab-button" onclick="showPage('past_reservation')">Past</button>
+            <button class="tab-button" onclick="showPage('rejected_reservation')">Rejected</button>
+        </div>
+    </div>
+    <div class="page-content">
+        <div id="upcoming_reservation" class="tab-page active">
+            <table class="upcoming-table">
+                <tr>
+                    <td class="logo-column">
+                        <img class="reserve-rest-logo" src="../static/images/rest/DTFLogo.png" class="icon" alt="Icon" />
+                    </td>
+                    <td class="items-column">
+                        <div class="item-row">
+                            <p class="item-name">Restaurant Name</p>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-details">
+                                <div id="item-checkin" class="item-detail"><b>Check In:</b> 12 Mar 2021</div>
+                                <div id="item-duration" class="item-detail"><b>Duration:</b> 1 Hour</div>
+                                <div id="item-guests" class="item-detail"><b>Guests:</b> 4 Adults</div>
+                            </div>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-date"><b>Booked By:</b> John Doe</div>
+                        </div>
+                    </td>
+                    <td class="buttons-column">
+                        <button id="approve-button" class="reservation-button">Approve</button>
+                        <button id="reject-button" class="reservation-button">Reject</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="past_reservation" class="tab-page">
+            <table class="past-table">
+                <tr>
+                    <td class="logo-column">
+                        <img class="reserve-rest-logo" src="../static/images/rest/DTFLogo.png" class="icon" alt="Icon" />
+                    </td>
+                    <td class="items-column">
+                        <div class="item-row">
+                            <p class="item-name">Restaurant Name</p>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-details">
+                                <div id="item-checkin" class="item-detail"><b>Check In:</b> 12 Mar 2021</div>
+                                <div id="item-duration" class="item-detail"><b>Duration:</b> 1 Hour</div>
+                                <div id="item-guests" class="item-detail"><b>Guests:</b> 4 Adults</div>
+                            </div>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-date"><b>Booked By:</b> John Doe</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-details">
+                                <div id="payment-date" class="item-detail"><b>Payment Made:</b> 12 Mar 2021</div>
+                                <div id="payment-method" class="item-detail"><b>Payment Method:</b> Visa</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="rejected_reservation" class="tab-page">
+            <table class="reject-table">
+                <tr>
+                    <td class="logo-column">
+                        <img class="reserve-rest-logo" src="../static/images/rest/DTFLogo.png" class="icon" alt="Icon" />
+                    </td>
+                    <td class="items-column">
+                        <div class="item-row">
+                            <p class="item-name">Restaurant Name</p>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-details">
+                                <div id="item-checkin" class="item-detail"><b>Check In:</b> 12 Mar 2021</div>
+                                <div id="item-duration" class="item-detail"><b>Duration:</b> 1 Hour</div>
+                                <div id="item-guests" class="item-detail"><b>Guests:</b> 4 Adults</div>
+                            </div>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-date"><b>Booked By:</b> John Doe</div>
+                        </div>
+                        <div class="item-row">
+                            <div class="item-details">
+                                <div id="reject-user" class="item-detail"><b>Rejected By:</b> Jane Doe</div>
+                                <div id="reject-date" class="item-detail"><b>Rejected On:</b> 12 Mar 2021</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

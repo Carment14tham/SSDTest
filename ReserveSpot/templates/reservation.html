@@ -1,0 +1,44 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Reservation{% endblock %}
+{% block content %}
+<div class="reservations-container">
+    <h2>Reservations</h2>
+    <div class="tabs">
+        <button class="tablinks active" onclick="openTab(event, 'Upcoming')">Upcoming</button>
+        <button class="tablinks" onclick="openTab(event, 'Past')">Past</button>
+    </div>
+    <div id="Upcoming" class="tabcontent">
+        <div class="reservation-item">
+            <img src="../static/images/rest/saizeriya.png" alt="Saizeriya Logo" class="restaurant-logo">
+            <div class="reservation-details">
+                <h3>Saizeriya Table Booking</h3>
+                <p>Check In: 12 Mar 2021, 3PM</p>
+                <p>Duration: 1 hour</p>
+                <p>Guests: 4 Adults</p>
+                <p>$1000</p>
+            </div>
+            <div class="reservation-actions">
+                <button class="cancel-btn">Cancel Reservation</button>
+                <button class="edit-btn">Edit Reservation</button>
+            </div>
+        </div>
+        <div class="reservation-item">
+            <img src="../static/images/rest/APP.png" alt="Ayam Penyet Logo" class="restaurant-logo">
+            <div class="reservation-details">
+                <h3>Ayam Penyet President Table Booking</h3>
+                <p>Check In: 12 Mar 2021, 3PM</p>
+                <p>Duration: Unlimited</p>
+                <p>Guests: 4 Adults</p>
+                <p>$1000</p>
+            </div>
+            <div class="reservation-actions">
+                <button class="cancel-btn">Cancel Reservation</button>
+                <button class="edit-btn">Edit Reservation</button>
+            </div>
+        </div>
+    </div>
+    <div id="Past" class="tabcontent" style="display:none;">
+        <!-- Past reservations will be listed here -->
+    </div>
+</div>
+{% endblock %}

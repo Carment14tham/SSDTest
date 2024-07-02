@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+<div id="loginmodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'login_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="logintitle">Login</span>
+            <span onclick="document.getElementById('loginmodal').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="login-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="login-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <span class="psw"><a href="#">Forgot your password?</a></span>
+            <br>
+            <span class="register">No account? <a href="#registermodal" onclick="toggleForms()">Register now</a></span>
+            <br>
+            <button type="submit" name="login_submit" class="login-btn rounded-pill">Login</button>
+        </div>
+    </form>
+</div>
+<div id="registermodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'register_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="registertitle">Register</span>
+            <span onclick="document.getElementById('registermodal').style.display='none'" onc class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="register-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="email" class="register-email rounded-pill" placeholder="Enter Email" name="email" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="register-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <button type="submit" name="register_submit" class="register-btn rounded-pill" >Register</button>
+        </div>
+    </form>
+</div>
+<section>
+    <div class="background-container">
+        <div class="section-items find">
+            <h1 class="font-weight-bold findtxt orange">About Us.</h1>
+        </div>
+    </div>
+</section>
+    <section class="description-container">
+        <section>
+            <h1 class="section-title orange">Who are we?</h1>
+            <hr>
+            <p>
+                ReserveSpot is the top online-friendly system of reservations, offering cutting-edge features and
+                functionalities carefully and attentively to smoothen the online process of reservation at all sorts of
+                events
+                and services.
+            </p>
+        </section>
+    </section>
+    <section class="description-container-trans">
+        <section>
+            <h1 class="section-title orange">What can we do?</h1>
+            <hr>
+            <p>
+                Whether you plan to visit an electric concert, book a workshop, or organise a family day out - all
+                that is possible with ReserveSpot. It's the first platform with such a seamless and intuitive interface
+                where
+                organising any event is as easy as pie.
+            </p>
+        </section>
+    </section>
+    <section class="description-container">
+        <section>
+            <h1 class="section-title orange">What makes us special?</h1>
+            <hr>
+            <p>
+                With such out-of-the-box features as the unified communication platform
+                and strong integration capabilities, ReserveSpot does offer more than booking: The product creates a
+                connection
+                and a flexible environment for booking. In so doing, ReserveSpot aspires to revolutionise the booking
+                industry
+                by providing an all-rounded, easy-to-use platform that endeavours not only to meet the demands set by
+                today's
+                fast-paced lifestyle but to be forward-thinking and preempt tomorrow's.
+            </p>
+        </section>
+    </section>
+    {% endblock %}

@@ -1,0 +1,35 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Profile{% endblock %}
+{% block content %}
+<div class="userprofile-container grid">
+    <div class="useridentify-container">
+        <div class="useridentify-item profileimg">
+            <img src="../static/images/user/usrprofile.png" id="selectedAvatar" class="imgcolorchange rounded-circle"
+                alt="Avatar" />
+            <br>
+            <div data-mdb-ripple-init class="btn btn-light rounded-pill uploadbtn">
+                <label class="form-label m-1" for="usrimg"><b>Upload a Photo</b></label>
+                <input type="file" class="form-control d-none" id="usrimg" onchange="" />
+            </div>
+        </div>
+        <br>
+        <div class="useridentify-item identinfo">
+            <h1 class="identify-title verify">Identify Verification</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <h1 class="identify-title usrprofilename">John Doe</h1>
+            <p><i class="bi bi-check2"> Email Confirmed</i></p>
+            <p><i class="bi bi-check2"> Mobile Confirmed</i> </p>
+        </div>
+    </div>
+    <div class="userinfo-container">
+        <h1 class="userinfo-title">Hello, John Doe</h1>
+        <span>Joined in 2021</span>
+        <br>
+        <a href="{% url 'editprofile' %}">
+            <button class="btn editProfile-btn">Edit Profile</button>
+        </a>
+        <hr>
+        <p><u>Reviewed By You</u></p>
+    </div>
+</div>
+{% endblock %}

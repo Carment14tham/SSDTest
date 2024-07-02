@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Restaurants{% endblock %}
+{% block content %}
+<div id="loginmodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'login_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="logintitle">Login</span>
+            <span onclick="document.getElementById('loginmodal').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="login-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="login-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <span class="psw"><a href="#">Forgot your password?</a></span>
+            <br>
+            <span class="register">No account? <a href="#registermodal" onclick="toggleForms()">Register now</a></span>
+            <br>
+            <button type="submit" name="login_submit" class="login-btn rounded-pill">Login</button>
+        </div>
+    </form>
+</div>
+<div id="registermodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'register_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="registertitle">Register</span>
+            <span onclick="document.getElementById('registermodal').style.display='none'" onc class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="register-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="email" class="register-email rounded-pill" placeholder="Enter Email" name="email" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="register-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <button type="submit" name="register_submit" class="register-btn rounded-pill" >Register</button>
+        </div>
+    </form>
+</div>
+<section>
+    <div class="background-container rest-main">
+        <div class="section-items find">
+            <h1 class="font-weight-bold findtxt orange">Restaurant Lists</h1>
+        </div>
+    </div>
+</section>
+<div class="restaurant">
+    <h6 id="restaurantTitle">
+        Restaurants
+    </h6>
+    <div>
+        <a href="{% url 'restaurant_list' %}">All</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Chinese' %}">Chinese</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Western' %}">Western</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Indian' %}">Indian</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Muslim' %}">Muslim</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Japanese' %}">Japanese</a>
+        <a href="{% url 'restaurant_list_by_cuisine' 'Italian' %}">Italian</a>
+    </div>
+    <div class="restaurant-list">
+        <div class="restaurant-card">
+            <img src="../static/images/rest/DTF.jpg" alt="Din Tai fung" class="restaurant-image">
+            <div class="restaurant-info">
+                <h2>Din Tai Fung</h2>
+                <p>#B1-28, Hougang Green</p>
+                <p>Rating: 5 Stars</p>
+                <p>Price: $$$</p>
+                <p>Opening Hours: 10am to 5pm</p>
+                <p>Restaurant Description</p>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <img src="/static/images//rest/DTF.jpg" alt="Din Tai fung" class="restaurant-image">
+            <div class="restaurant-info">
+                <h2>Din Tai Fung</h2>
+                <p>#B1-28, Hougang Green</p>
+                <p>Rating: 5 Stars</p>
+                <p>Price: $$$</p>
+                <p>Opening Hours: 10am to 5pm</p>
+                <p>Restaurant Description</p>
+            </div>
+        </div>
+        {% comment %} comment out this when db is settled {% endcomment %}
+        {% comment %} {% for restaurant in restaurants %}
+        <div class="restaurant-card">
+            <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="restaurant-image">
+            <div class="restaurant-info">
+                <h2>{{ restaurant.name }}</h2>
+                <p>{{ restaurant.address }}</p>
+                <p>Rating: {{ restaurant.rating }}</p>
+                <p>Price: {{ restaurant.price }}</p>
+                <p>Opening Hours: {{ restaurant.duration }}</p>
+                <p>{{ restaurant.description }}</p>
+            </div>
+        </div>
+        {% endfor %} {% endcomment %}
+    </div>
+</div>
+</section>
+{% endblock %}

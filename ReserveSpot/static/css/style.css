@@ -1,0 +1,899 @@
+body {
+    color: #101A72;
+    font-family: Arial, sans-serif;
+}
+
+.orange {
+    color: #E75909;
+}
+
+.grid {
+    display: grid;
+}
+
+a {
+    text-decoration: none;
+    color: #101A72;
+}
+
+.navbar-nav,
+.navbar-brand {
+    align-self: flex-start;
+    align-items: center;
+}
+
+.navbar-main {
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-item {
+    padding: 15px;
+}
+
+.navbar-user {
+    background-color: #EEC9B3;
+    color: #101A72;
+    font-weight: 600;
+}
+
+.dropdown-menu.show {
+    margin-left: -65.5px;
+}
+
+#logo {
+    width: 30%;
+    height: 100%;
+}
+
+#userlogo {
+    width: 20%;
+    height: 100%;
+}
+
+#brandname {
+    display: inline-block;
+    color: black;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    white-space: nowrap;
+    margin-left: -70px;
+}
+
+.bi-person-circle {
+    font-size: 200%;
+    width: 200%;
+    height: 100%;
+}
+
+#loginbtn {
+    background-color: #E75909;
+    padding: 10px 40px;
+}
+
+.logtitlecontainer {
+    font-weight: 700;
+    padding: 20px;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password],
+input[type=tel],
+input[type=email],
+input[type=date],
+input[type=time] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+select,
+textarea {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #E75909;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+}
+
+button:hover {
+    background-color: #EEC9B3;
+    color: #101A72;
+}
+
+.loginform-container {
+    padding: 25px;
+}
+
+/* The Modal (background) */
+.smodal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.smodal hr {
+    border: 1px solid #E75909;
+    width: 100%;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    color: #101A72;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.background-container {
+    background-image: url('../images/fruitsalad.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 642px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+.background-container>* {
+    position: relative;
+    z-index: 2;
+    color: #EF6435;
+    font-size: 2rem;
+}
+.rest-main
+{
+    background-image: url("../images/rest_main.jpeg");
+}
+.restaurant-item {
+    position: relative;
+    width: 279px;
+    height: 340px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.restaurant-item img {
+    width: 279px;
+    height: 340px;
+}
+
+.restaurant-item .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.restaurant-item .content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.restaurant-item .content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.restaurant-item .heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: url('../images/heart_icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+.restaurant-item .heart-icon:hover {
+    background: url('../images/filled-heart.png') no-repeat center center;
+    background-size: contain;
+}
+
+.restaurant-grid {
+    display: flex;
+    gap: 0.01px;
+    justify-content: space-around;
+}
+
+.find {
+    text-align: center;
+}
+
+.findtxt {
+    font-weight: 800;
+    font-size: 64px;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 36px;
+    text-wrap: wrap;
+    white-space: nowrap;
+    width: 25%;
+    padding-bottom: 15px;
+}
+
+#section-container {
+    width: 100%;
+    padding: 20px;
+}
+
+.section-items {
+    padding: 10px;
+}
+
+.section-items hr {
+    border: 3px solid black;
+    max-width: 115px;
+    margin: 0px;
+}
+
+.cuisine-type {
+    grid-template-columns: auto auto auto auto auto auto;
+    justify-items: center;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cuisine-logo {
+    width: 40%;
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+.guide {
+    background-color: #EEC9B3;
+    color: #E75909;
+    font-weight: 700;
+    font-size: 32px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.guideinfo {
+    width: 50%;
+}
+
+.help-btn {
+    font-size: 15px;
+}
+
+.gicon {
+    text-align: center;
+}
+
+.description-container {
+    width: 95%;
+    margin: 35px auto;
+    background-color: #EEC9B3;
+    padding: 25px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.description-container-trans {
+    width: 95%;
+    margin: 35px auto;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 25px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+footer {
+    width: 100%;
+    background-color: #EEC9B3;
+    border-radius: 0 0 1% 1%;
+}
+
+.footer-container {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 20% 20% 25%;
+    padding: 20px;
+}
+
+.footer-item {
+    padding: 40px;
+}
+
+.flogo {
+    text-align: center;
+}
+
+#footer-logo {
+    width: 70%;
+}
+
+.footer-heading {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.footer-subitem {
+    font-weight: 500;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.socialmedia {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    font-size: 30px;
+}
+
+footer hr {
+    border-color: #E0E2E6;
+}
+
+.footer-banner {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 95%;
+    padding: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    margin: auto;
+    justify-items: stretch;
+}
+
+.copyright {
+    font-weight: bold;
+}
+
+.creator {
+    text-align: right;
+}
+
+.userprofile-container {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 30% auto;
+    height: 100%;
+    margin: auto;
+    padding: 30px;
+}
+
+.profileimg {
+    text-align: center;
+}
+
+.uploadbtn {
+    color: #101A72;
+}
+
+.useridentify-container {
+    background-color: #E75909;
+    padding: 20px;
+}
+
+.imgcolorchange {
+    background-color: white;
+    margin: 10px;
+    width: 150px;
+}
+
+.identify-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.userinfo-container {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.userinfo-title {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.editProfile-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background-color: #E75909;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.editProfile-btn:hover {
+    background-color: #EEC9B3;
+}
+
+.userinfo-form {
+    margin: 20px auto;
+}
+
+.bi-pencil-fill {
+    margin: 0 10px;
+}
+
+.infobtn-container {
+    text-align: end;
+}
+
+#resetbtn {
+    font-weight: 700;
+    color: #101A72;
+}
+
+#savebtn {
+    background-color: #E75909;
+    font-weight: 700;
+}
+
+#deactivebtn {
+    background-color: #E73109;
+    width: 30%;
+}
+
+.infobtn {
+    padding: 15px;
+}
+
+/* New styles for reservations page */
+.reservations-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reservation-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60%;
+}
+
+.reservation-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #101A72;
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.reservation-form button {
+    background-color: #E75909;
+    color: white;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.reservation-form button:hover {
+    background-color: #EEC9B3;
+    color: #101A72;
+}
+
+.restaurant-details {
+    background-color: #EEC9B3;
+    padding: 20px;
+    border-radius: 10px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.restaurant-logo-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.restaurant-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.restaurant-info {
+    width: 100%;
+    text-align: left;
+}
+
+.restaurant-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.restaurant-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #101A72;
+}
+
+.restaurant-info hr {
+    border: 0;
+    border-top: 1px solid #E75909;
+    margin: 10px 0;
+}
+
+.restaurant-info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #101A72;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tablinks {
+    background-color: #EEC9B3;
+    color: #101A72;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.tablinks.active {
+    background-color: #E75909;
+    color: white;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+.reservation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.restaurant-logo {
+    width: 100px;
+    height: auto;
+}
+
+.reservation-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.reservation-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #E75909;
+}
+
+.reservation-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #101A72;
+}
+
+.reservation-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancel-btn, .edit-btn {
+    background-color: #E75909;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 200px;
+    text-align: center;
+}
+
+.cancel-btn:hover, .edit-btn:hover {
+    background-color: #EEC9B3;
+    color: #101A72;
+}
+/* New styles for search box */
+
+.search-bar-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px; 
+    border-right: 1px solid #ccc; 
+}
+
+.search-field:nth-last-child(1), 
+.search-field:nth-last-child(2) { 
+    border-right: none; 
+}
+
+.search-field label {
+    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #101A72;
+    text-align: left; 
+}
+
+.search-field input {
+    padding: 1px;
+    border: none;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+}
+
+.search-btn {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #ff6600;
+    color: white;
+    border: none; 
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+}
+
+.search-btn:hover {
+    background-color: #e65c00;
+}
+
+.search-btn i {
+    font-size: 16px;
+}
+
+
+.find-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #e65c00;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/*payment styles*/
+#payment-form-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.payment-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-logo {
+    width: 50px;
+    height: auto;
+}
+
+.payment-method input[type="radio"]:checked + label .payment-logo {
+    border: 2px solid #E75909;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#submit-preferred-payment-btn {
+    background-color: #E75909;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-items: left;
+    width: 100px;
+}
+
+#submit-preferred-payment-btn:hover {
+    background-color: #e65c00;
+}
+
+#restaurantTitle {
+    width: 100%;
+    padding: 50px;
+}
+
+.restaurant-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px;
+    text-align: left;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+.restaurant-image {
+    width: 100%;
+    border-radius: 5px;
+}
+.restaurant-info {
+    margin-top: 12px;
+}

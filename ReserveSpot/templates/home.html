@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}ReserveSpot {% endblock %}
+{% block content %}
+<div id="loginmodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'login_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="logintitle">Login</span>
+            <span onclick="document.getElementById('loginmodal').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="login-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="login-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <span class="psw"><a href="#">Forgot your password?</a></span>
+            <br>
+            <span class="register">No account? <a href="#registermodal" onclick="toggleForms()">Register now</a></span>
+            <br>
+            <button type="submit" name="login_submit" class="login-btn rounded-pill">Login</button>
+        </div>
+    </form>
+</div>
+<div id="registermodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'register_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="registertitle">Register</span>
+            <span onclick="document.getElementById('registermodal').style.display='none'" onc class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="register-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="email" class="register-email rounded-pill" placeholder="Enter Email" name="email" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="register-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <button type="submit" name="register_submit" class="register-btn rounded-pill" >Register</button>
+        </div>
+    </form>
+</div>
+<div class="background-container">
+    <div class="section-items find">
+        <h1 class="font-weight-bold findtxt orange">Reserve. Relax. Savor. Enjoy.</h1>
+        <!-- Find text -->
+        <div class="find-section">
+            <h2 class="find-title">FIND</h2>
+            <!-- Search bar -->
+            <div class="search-bar-container">
+                <form action="/search/" method="GET" class="search-form">
+                    <div class="search-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="q" placeholder="What are you searching for?">
+                    </div>
+                    <div class="search-field">
+                        <label for="type">Type</label>
+                        <input type="text" id="type" name="type" placeholder="Chinese">
+                    </div>
+                    <div class="search-field">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" placeholder="Add Date">
+                    </div>
+                    <div class="search-field">
+                        <label for="price">Price Range</label>
+                        <input type="text" id="price" name="price" placeholder="Add Price">
+                    </div>
+                    <div class="search-field">
+                        <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <!-- End of search bar -->
+        </div>
+    </div>
+</div>
+<section id="section-container">
+    <section class="section-items cuisines">
+        <h1 class="section-title orange">Cuisines</h1>
+        <hr>
+        <br>
+        <div class="cuisine-type grid"> <!--For now static, dynamic not sure yet via db-->
+            <div class="cuisine-items chinese">
+                <a class="cuisine-link clink" href="/">
+                    <img class="cuisine-logo cllogo" alt="Chinese" title="Chinese" src="../static/images/cllogo.png">
+                    <p>Chinese</p>
+                </a>
+            </div>
+            <div class="cuisine-items western">
+                <a class="cuisine-link wlink" href="/">
+                    <img class="cuisine-logo cwlogo" alt="Western" title="Western" src="../static/images/wlogo.png">
+                    <p>Western</p>
+                </a>
+            </div>
+            <div class="cuisine-items indian">
+                <a class="cuisine-link ilink" href="/">
+                    <img class="cuisine-logo ilogo" alt="Indian" title="Indian" src="../static/images/ilogo.png">
+                    <p>Indian</p>
+                </a>
+            </div>
+            <div class="cuisine-items muslim">
+                <a class="cuisine-link mlink" href="/">
+                    <img class="cuisine-logo mlogo" alt="Muslim" title="Muslim" src="../static/images/mlogo.png">
+                    <p>Muslim</p>
+                </a>
+            </div>
+            <div class="cuisine-items japanese">
+                <a class="cuisine-link jlink" href="/">
+                    <img class="cuisine-logo jlogo" alt="Japanese" title="Japanese" src="../static/images/jlogo.png">
+                    <p>Japanese</p>
+                </a>
+            </div>
+            <div class="cuisine-items italian">
+                <a class="cuisine-link itlink" href="/">
+                    <img class="cuisine-logo itlogo" alt="Italian" title="Italian" src="../static/images/itlogo.png">
+                    <p>Italian</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="section-items recommendened">
+        <h1 class="section-title orange">Recommended Family Restaurants</h1>
+        <hr>
+        <br>
+        <div class="restaurant-grid">
+            <div class="restaurant-item">
+                <img src="../static/images/rest/EdoThumbnail1200x627.jpg" alt="Edo Shokudo">
+                <div class="content">
+                    <h3 class="restaurant-name">Edo Shokudo</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+
+            <div class="restaurant-item">
+                <img src="../static/images/rest/corporate_img.jpg" alt="Saizeriya">
+                <div class="content">
+                    <h3 class="restaurant-name">Saizeriya</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+            <div class="restaurant-item">
+                <img src="../static/images/rest/1024-width.jpg" alt="APP">
+                <div class="content">
+                    <h3 class="restaurant-name">Ayam Penyet President</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+            <div class="restaurant-item">
+                <img src="../static/images/rest/ichibanRest.jpg" alt="Ichiban">
+                <div class="content">
+                    <h3 class="restaurant-name">Ichiban Boshi</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section-items reserved">
+        <h1 class="section-title orange">Most Reserved Spots</h1>
+        <hr>
+        <br>
+        <div class="restaurant-grid">
+            <div class="restaurant-item">
+                <img src="../static/images/rest/DTF.jpg" alt="DTF">
+                <div class="content">
+                    <h3 class="restaurant-name">Din Tai Fung</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+
+            <div class="restaurant-item">
+                <img src="../static/images/rest/WDB.jpg" alt="WDB">
+                <div class="content">
+                    <h3 class="restaurant-name">Wang Dae Bak</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+            <div class="restaurant-item">
+                <img src="../static/images/rest/TWL.jpg" alt="TWL">
+                <div class="content">
+                    <h3 class="restaurant-name">The White Label</h3>
+                    <p>101 Jln Sultan, Singapore 199002</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+            <div class="restaurant-item">
+                <img src="../static/images/rest/PM.jpg" alt="Pizzamaru">
+                <div class="content">
+                    <h3 class="restaurant-name">Pizzamaru</h3>
+                    <p>Multiple Locations</p>
+                </div>
+                <div class="heart-icon"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section-items guide grid">
+        <div class="guide-item ghelp">
+            <p>Not sure how to reserve?</p>
+            <p>We'll guide you!</p>
+            <button type="submit" class="help-btn rounded-pill">Help</button>
+        </div>
+        <div class="guide-item gicon">
+            <img src="../static/images/guideinfo.png" class="guideinfo" alt="Guide" />
+        </div>
+    </section>
+</section>
+{% endblock %}

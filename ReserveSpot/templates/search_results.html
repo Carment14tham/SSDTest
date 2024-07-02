@@ -1,0 +1,182 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Results{% endblock %}
+{% block content %}
+<div id="loginmodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'login_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="logintitle">Login</span>
+            <span onclick="document.getElementById('loginmodal').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="login-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="login-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <span class="psw"><a href="#">Forgot your password?</a></span>
+            <br>
+            <span class="register">No account? <a href="#registermodal" onclick="toggleForms()">Register now</a></span>
+            <br>
+            <button type="submit" name="login_submit" class="login-btn rounded-pill">Login</button>
+        </div>
+    </form>
+</div>
+<div id="registermodal" class="smodal">
+    <form class="modal-content animate" action="{% url 'register_view' %}" method="post">
+        {% csrf_token %}
+        <div class="logtitlecontainer">
+            <span class="registertitle">Register</span>
+            <span onclick="document.getElementById('registermodal').style.display='none'" onc class="close"
+                title="Close Modal">&times;</span>
+        </div>
+        <hr>
+        <div class="loginform-container">
+            <label for="uname"><b>Username</b></label>
+            <br>
+            <input type="text" class="register-uname rounded-pill" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <input type="email" class="register-email rounded-pill" placeholder="Enter Email" name="email" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <br>
+            <input type="password" class="register-psw rounded-pill" placeholder="Enter Password" name="psw" required>
+            <br>
+            <button type="submit" name="register_submit" class="register-btn rounded-pill" >Register</button>
+        </div>
+    </form>
+</div>
+<section id="results-container">
+    <h6 class="results"><p>x Results Found</p></h6>
+    <div id="filter-container">
+        <div id="category-boxes" class="category-boxes">
+            <!-- Dynamic Category/Type Button -->
+            <div class="category-btn" id="category-1">
+                <span>Family</span>
+                <span class="close-btn" onclick="removeCategory('category-1')">&times;</span>
+            </div>
+            <div class="category-btn" id="category-1">
+                <span>30th Mar 2024</span>
+                <span class="close-btn" onclick="removeCategory('category-1')">&times;</span>
+            </div>
+        </div>
+        <div id="category-filters">
+            <!-- Filter search results Button -->
+            <button id="filterButton" class="filter-button" onclick="openFilterOptions()">
+                <img src="../static/images/filterBtn.png" alt="Filter Icon" class="filter-icon">
+                <span>Filter</span>
+            </button>       
+            
+            <div id="filterOptions" class="filter-options">
+                <label>
+                    <input type="checkbox" name="sortByPriceAsc"> Sort by Price (Lowest to Highest)
+                </label>
+                <label>
+                    <input type="checkbox" name="sortByPriceDesc"> Sort by Price (Highest to Lowest)
+                </label>
+                <label>
+                    <input type="checkbox" name="sortByRatingAsc"> Sort by Rating (Lowest to Highest)
+                </label>
+                <label>
+                    <input type="checkbox" name="sortByRatingDesc"> Sort by Rating (Highest to Lowest)
+                </label>
+                <button id="filterApplyBtn" onclick="applySettings()">Apply</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="display-container">
+    <section class="display-items">
+        <div class="restaurant-card">
+            <div class="card-item">
+                <div class="card-image">
+                    <div class="heart-icon"></div>
+                    <img class="card-rest-image" src="../static/images/rest/DTF.jpg" alt="DTF">
+                    <img class="card-rest-logo" src="../static/images/rest/DTFLogo.png" class="icon" alt="Icon" />
+                </div>
+                <div class="card-details">
+                    <h3 class="rest-name">Din Tai Fung</h3>
+                    <p class="rest-location">Multiple Locations</p>
+                    <div class="card-rating">
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <span class="rating-number">4</span>
+                    </div>
+                    <p class="card-price-desc">Price: $$     |   Duration: 1-2 Hours</p> 
+                    <p class="card-description">Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="card-item">
+                <div class="card-image">
+                    <div class="heart-icon"></div>
+                    <img class="card-rest-image" src="../static/images/rest/EdoThumbnail1200x627.jpg" alt="DTF">
+                    <img class="card-rest-logo" src="../static/images/rest/Edo Shokudo logo.jpg" class="icon" alt="Icon" />
+                </div>
+                <div class="card-details">
+                    <h3 class="rest-name">Edo Shokudo</h3>
+                    <p class="rest-location">Multiple Locations</p>
+                    <div class="card-rating">
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <span class="rating-number">3</span>
+                    </div>
+                    <p class="card-price-desc">Price: $$     |   Duration: 1-2 Hours</p> 
+                    <p class="card-description">Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="card-item">
+                <div class="card-image">
+                    <div class="heart-icon"></div>
+                    <img class="card-rest-image" src="../static/images/rest/ichibanRest.jpg" alt="DTF">
+                    <img class="card-rest-logo" src="../static/images/rest/ichibanLogo.jpg" class="icon" alt="Icon" />
+                </div>
+                <div class="card-details">
+                    <h3 class="rest-name">Ichiban Boshi</h3>
+                    <p class="rest-location">Multiple Locations</p>
+                    <div class="card-rating">
+                        <img src="../static/images/star.png" alt="Star" />
+                        <span class="rating-number">1</span>
+                    </div>
+                    <p class="card-price-desc">Price: $$     |   Duration: 1-2 Hours</p> 
+                    <p class="card-description">Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="card-item">
+                <div class="card-image">
+                    <div class="heart-icon"></div>
+                    <img class="card-rest-image" src="../static/images/rest/corporate_img.jpg" alt="DTF">
+                    <img class="card-rest-logo" src="../static/images/rest/saizeriya.png" class="icon" alt="Icon" />
+                </div>
+                <div class="card-details">
+                    <h3 class="rest-name">Saizeriya</h3>
+                    <p class="rest-location">Multiple Locations</p>
+                    <div class="card-rating">
+                        <img src="../static/images/star.png" alt="Star" />
+                        <img src="../static/images/star.png" alt="Star" />
+                        <span class="rating-number">2</span>
+                    </div>
+                    <p class="card-price-desc">Price: $$     |   Duration: 1-2 Hours</p> 
+                    <p class="card-description">Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

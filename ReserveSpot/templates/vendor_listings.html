@@ -1,0 +1,24 @@
+{% extends "userbase.html" %}
+{% block title %}ReserveSpot - Vendor Listings{% endblock %}
+{% block content %}
+<h6 id="vendorTitle"><p>Your Properties</p></h6>
+<section id="listing-container">
+    <section class="listing-items">
+        <div class="listing-card">
+            <div class="listing-details">
+                <div class="listing-image"> 
+                    <img class="card-listing-image" src="../static/images/rest/DTF.jpg" alt="DTF">
+                </div>
+                <div class="listing-info">
+                    <h3 class="listing-name">Din Tai Fung</h3>
+                    <p class="listing-location">abcd street 123</p>
+                    <div class="listing-btns">
+                        <button id="viewListing" onclick="viewListing()">View</button>
+                        <button id="removeListing" onclick="removeListing()">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}
