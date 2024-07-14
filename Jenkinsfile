@@ -151,19 +151,31 @@ pipeline {
         }
     }
     agent any
-	stages {
-		stage('Checkout SCM') {
-			steps {
-				git '/home/JenkinsDependencyCheckTest'
-			}
-		}
-
-		stage('OWASP DependencyCheck') {
-			steps {
-				dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
-			}
+	stage('OWASP DependencyCheck') {
+		steps {
+			dependencyCheck additionalArguments: '-n --noupdate --format HTML --format XML --suppression suppression.xml', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
 		}
 	}
+    agent any 
+    stages { 
+        stage('SCM Checkout') {
+            steps{
+           git branch: 'main', url: 'https://github.com/lily4499/lil-node-app.git'
+            }
+        }
+        // run sonarqube test
+        stage('Run Sonarqube') {
+            environment {
+                scannerHome = tool 'lil-sonar-tool';
+            }
+            steps {
+              withSonarQubeEnv(credentialsId: 'lil-sonar-credentials', installationName: 'SonarQube') {
+                sh "${scannerHome}/bin/sonar-scanner"
+              }
+            }
+        }
+    }
+	
 
     post {
         always {
